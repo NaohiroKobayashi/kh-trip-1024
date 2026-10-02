@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>黒保根ポーカー合宿</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#173B2F; --cream:#F8F8F4; --rust:#9A4F1F; --peach:#E3A27A; --peach-soft:#F3D9C6;
+  --muted:#4F5A52; --tint:#E6ECE3; --line:#3D7263; --sage:#B9C8BF; --badge:#2C5A4C;
+  --serif:'Shippori Mincho B1',serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--green);color:var(--cream);font-family:'Zen Kaku Gothic New',sans-serif;font-size:16px;line-height:1.7;-webkit-text-size-adjust:100%}
+p,h1,h2,h3,dl,dd,ul{margin:0}
+a{color:var(--peach)} a:hover{color:#F0BE9C}
+a:focus-visible{outline:2px solid var(--peach);outline-offset:3px;border-radius:4px}
+.wrap{max-width:720px;margin:0 auto;padding:28px 16px 48px}
+
+/* header */
+.updated{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--peach)}
+.updated svg{width:18px;height:18px;flex-shrink:0}
+h1{margin-top:10px;font-family:var(--serif);font-weight:800;font-size:clamp(34px,9vw,52px);line-height:1.2;letter-spacing:.01em}
+.dates{margin-top:8px;font-family:var(--serif);font-weight:600;font-size:clamp(20px,5.4vw,28px);line-height:1.35;color:var(--peach)}
+.meta{margin-top:6px;font-size:15px;color:var(--sage)}
+.toc{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+.toc a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid rgba(248,248,244,.3);border-radius:10px;color:var(--cream);text-decoration:none;font-size:14px;font-weight:700}
+.toc a:hover{background:rgba(248,248,244,.08)}
+
+/* meeting band */
+.band{margin-top:22px;background:var(--rust);border-radius:16px;padding:20px}
+.band-times{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.band-times div+div{padding-left:14px;border-left:2px solid rgba(248,248,244,.35)}
+.k{font-size:13px;font-weight:700;color:var(--peach-soft)}
+.t{font-family:var(--serif);font-weight:800;font-size:clamp(30px,8vw,40px);line-height:1.2}
+.place{margin-top:12px;font-family:var(--serif);font-weight:800;font-size:clamp(19px,5vw,24px);line-height:1.4}
+.band-note{margin-top:12px;padding-top:12px;border-top:1px solid rgba(248,248,244,.3);font-size:14px;line-height:1.7;color:var(--peach-soft)}
+
+/* panels */
+.part{margin-top:44px;font-family:var(--serif);font-weight:800;font-size:clamp(26px,7vw,34px);line-height:1.25}
+.panel{margin-top:16px;background:var(--cream);color:var(--green);border-radius:16px;padding:22px 20px}
+.panel.soft{background:var(--tint)}
+.panel h2,.panel h3.title{font-family:var(--serif);font-weight:800;font-size:21px;line-height:1.35}
+.rows{margin-top:14px;display:flex;flex-direction:column;gap:14px}
+.row dt{font-size:14px;font-weight:700;color:var(--rust)}
+.row dd{font-size:16px;line-height:1.7}
+.badge{display:inline-block;margin-right:8px;padding:0 8px;border-radius:6px;background:var(--tint);color:var(--badge);font-size:12.5px;font-weight:700;line-height:1.8;vertical-align:1px}
+
+/* costs */
+.costs{margin-top:16px;padding:20px 0 0;border-top:2px solid var(--line)}
+.costs h2{font-size:15px;font-weight:700;color:var(--peach)}
+.cost-list{margin-top:10px;list-style:none;padding:0;display:flex;flex-direction:column;gap:4px;font-size:16px}
+.cost-list li{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid rgba(248,248,244,.15)}
+.cost-list b{font-family:var(--serif);font-weight:800;font-size:18px;white-space:nowrap}
+.owe{margin-top:14px;font-size:17px;font-weight:700;line-height:1.6}
+.cost-note{margin-top:6px;font-size:14px;color:var(--sage)}
+
+/* leaders */
+.leaders{margin-top:14px;display:grid;grid-template-columns:1fr;gap:12px}
+.leader{background:var(--tint);border-radius:12px;padding:16px}
+.leader .what{font-size:13px;font-weight:700;color:var(--rust)}
+.leader .who{font-family:var(--serif);font-weight:800;font-size:28px;line-height:1.3}
+.leader .do{font-size:14px;color:var(--muted)}
+.others{margin-top:22px}
+.others h3{font-size:14px;font-weight:700;color:var(--rust)}
+.others dl{margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.others div{display:grid;grid-template-columns:6.5em minmax(0,1fr);gap:8px;align-items:baseline}
+.others dt{font-size:16px;font-weight:700}
+.others dd{font-size:15px;color:var(--muted)}
+
+/* todo */
+.todo{margin-top:14px;list-style:none;padding:0;display:flex;flex-direction:column;gap:14px}
+.todo li{display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:10px;align-items:start}
+.box{display:block;width:18px;height:18px;margin-top:5px;border:2px solid var(--rust);border-radius:4px}
+.todo .what{font-size:16px;font-weight:700;line-height:1.6}
+.todo .sub{display:block;font-size:14px;font-weight:400;color:var(--muted)}
+.pill{padding:2px 10px;border-radius:999px;background:var(--green);color:var(--cream);font-size:13px;font-weight:700;line-height:1.6;white-space:nowrap}
+
+footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-wrap:balance}
+
+@media (min-width:600px){
+  .wrap{padding:44px 24px 64px}
+  .panel{padding:28px}
+  .row{display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:12px;align-items:baseline}
+  .row dt{font-size:15px}
+  .leaders{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .band{padding:24px 28px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+<p class="updated"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5C9.6 6 4 9.2 4 13.4c0 2.5 2 4.4 4.3 4.4 1.3 0 2.4-.5 3.1-1.3-.3 1.9-1.2 3.4-2.6 4.5h6.4c-1.4-1.1-2.3-2.6-2.6-4.5.7.8 1.8 1.3 3.1 1.3 2.3 0 4.3-1.9 4.3-4.4C20 9.2 14.4 6 12 2.5z"/></svg>10月2日時点</p>
+<h1>黒保根ポーカー合宿</h1>
+<p class="dates">10月24日（土）— 25日（日）</p>
+<p class="meta">群馬県桐生市・ログハウス貸切　7人　1泊2日</p>
+<nav class="toc" aria-label="ページ内の移動">
+<a href="#schedule">当日の予定と持ち物</a>
+<a href="#roles">役割と準備</a>
+</nav>
+</header>
+
+<main>
+<div class="band" id="schedule">
+<div class="band-times">
+<div><p class="k">集合</p><p class="t">6:15</p></div>
+<div><p class="k">出発</p><p class="t">6:30</p></div>
+</div>
+<p class="place">川崎駅西口のレンタカー店</p>
+<p class="band-note">お店はりゅーきが決める。ラフティングは遅れるとキャンセル料が全額かかるので、時間厳守で。</p>
+</div>
+
+<section class="panel" aria-labelledby="h-decided">
+<h2 id="h-decided">決まったこと</h2>
+<dl class="rows">
+<div class="row"><dt>宿</dt><dd><span class="badge">ゆーとが立て替え済み</span>ログベース黒保根の丘（1棟貸切）</dd></div>
+<div class="row"><dt>ラフティング</dt><dd><span class="badge">ゆーとが立て替え済み</span>水上・半日コース（TOP水上カンパニー）10:45集合 – 13:30</dd></div>
+<div class="row"><dt>車</dt><dd>アルファードかヴェルファイアの8人乗り。前日の夜に借りて、一晩停めておく（当日の朝はお店が開いていないため）</dd></div>
+<div class="row"><dt>1日目の夜</dt><dd>16:40ごろ宿に着く → テントサウナ（使うかは検討中）→ みんなで餃子を包んで鍋 → ポーカー</dd></div>
+<div class="row"><dt>2日目</dt><dd>足尾銅山観光 → 道の駅くろほね → 川崎に17時〜17時半ごろ着（渋滞しだい）</dd></div>
+</dl>
+</section>
+
+<section class="panel" aria-labelledby="h-bring">
+<h2 id="h-bring">持ち物</h2>
+<dl class="rows">
+<div class="row"><dt>ラフティング</dt><dd>水着（服の下に着ていくとラク。下着やラッシュガードでも可）、タオル、濡れてもいい靴（かかとが固定できるもの。クロックスとビーサンは不可）、メガネの人はメガネバンド</dd></div>
+<div class="row"><dt>そのほか</dt><dd>1泊分の着替え、夜の山で着る上着、少しの現金（ラフティング会社での靴のレンタルや写真は現金のみ）</dd></div>
+</dl>
+</section>
+
+<section class="costs" aria-labelledby="h-cost">
+<h2 id="h-cost">今わかっている費用（1人あたり）</h2>
+<ul class="cost-list">
+<li><span>ラフティング</span><b>8,250円</b></li>
+<li><span>宿</span><b>約8,000円</b></li>
+<li><span>足尾銅山</span><b>830円</b></li>
+<li><span>テントサウナ（使う場合）</span><b>約715円</b></li>
+</ul>
+<p class="owe">ゆーとが立て替え済み：ラフティングと宿で 1人 約16,250円</p>
+<p class="cost-note">足尾銅山は当日その場で各自払う。レンタカー・ガソリン・高速代・食材などは、帰ってからまとめて精算。</p>
+</section>
+
+<h2 class="part" id="roles">役割と準備</h2>
+
+<section class="panel" aria-labelledby="h-leaders">
+<h3 class="title" id="h-leaders">リーダー</h3>
+<div class="leaders">
+<div class="leader"><p class="what">車の予約と前日の駐車</p><p class="who">りゅーき</p><p class="do">お店選び、予約、前日の受取、一晩停める場所</p></div>
+<div class="leader"><p class="what">1日目とテントサウナ</p><p class="who">コバ</p><p class="do">出発から宿までの時間管理とナビ、沼田での買い出し、サウナの段取り</p></div>
+<div class="leader"><p class="what">夜の料理</p><p class="who">あつき</p><p class="do">買い物リストと当日の段取り</p></div>
+<div class="leader"><p class="what">2日目</p><p class="who">さとー</p><p class="do">足尾銅山と帰りの時間の管理</p></div>
+</div>
+<div class="others">
+<h3>ほかの役割</h3>
+<dl>
+<div><dt>ゆーと</dt><dd>幹事、宿とのやりとり</dd></div>
+<div><dt>あつき</dt><dd>ポーカーチップとマット</dd></div>
+<div><dt>りょーが</dt><dd>カセットコンロ2台とガス（宿になく、誰も持っていなければ買う）</dd></div>
+<div><dt>あさひ</dt><dd>会計（割り勘アプリ、レシート集め、ETCカード）、ポーカー用のトランプを1つ買う</dd></div>
+<div><dt>運転</dt><dd>りゅーき・りょーが・あさひ・ゆーと（休憩ごとに交代）</dd></div>
+<div><dt>料理と片付け</dt><dd>全員で</dd></div>
+</dl>
+</div>
+</section>
+
+<section class="panel soft" aria-labelledby="h-todo">
+<h3 class="title" id="h-todo">これから決めること</h3>
+<ul class="todo">
+<li><span class="box" aria-hidden="true"></span><span class="what">レンタカーのお店と予約<span class="sub">川崎駅西口を予定。朝6時に借りられるお店なら、当日の朝に受け取ってもいい</span></span><span class="pill">りゅーき</span></li>
+<li><span class="box" aria-hidden="true"></span><span class="what">前日の受取と、一晩停める場所<span class="sub">全高1,935mm。機械式の駐車場には入らない</span></span><span class="pill">りゅーき</span></li>
+<li><span class="box" aria-hidden="true"></span><span class="what">宿への確認<span class="sub">鍋とコンロの数、チェックイン・アウトの時刻、ゴミの出し方</span></span><span class="pill">ゆーと</span></li>
+<li><span class="box" aria-hidden="true"></span><span class="what">カセットコンロとガス<span class="sub">宿への確認のあと、足りなければ用意する</span></span><span class="pill">りょーが</span></li>
+<li><span class="box" aria-hidden="true"></span><span class="what">テントサウナを使うか<span class="sub">使うなら10月23日までに、ゆーとから宿へ申し込む。1人 約715円</span></span><span class="pill">コバ</span></li>
+<li><span class="box" aria-hidden="true"></span><span class="what">買い物リスト<span class="sub">鍋2種と餃子、飲み物。川崎で買うものと沼田で買うものに分ける</span></span><span class="pill">あつき</span></li>
+</ul>
+</section>
+</main>
+
+<footer>
+<p>10月2日時点。予定が変わったら、このページを更新します。</p>
+</footer>
+
+</div>
+</body>
+</html>
