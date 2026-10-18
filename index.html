@@ -15,6 +15,7 @@
   --serif:'Shippori Mincho B1',serif;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth;scroll-padding-top:16px}
 body{margin:0;background:var(--green);color:var(--cream);font-family:'Zen Kaku Gothic New',sans-serif;font-size:16px;line-height:1.7;-webkit-text-size-adjust:100%}
 p,h1,h2,h3,dl,dd,ul{margin:0}
@@ -31,6 +32,14 @@ h1{margin-top:10px;font-family:var(--serif);font-weight:800;font-size:clamp(34px
 .toc{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
 .toc a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid rgba(248,248,244,.3);border-radius:10px;color:var(--cream);text-decoration:none;font-size:14px;font-weight:700}
 .toc a:hover{background:rgba(248,248,244,.08)}
+
+/* tabs */
+.tabs{position:sticky;top:0;z-index:10;margin:22px -16px 0;padding:10px 16px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;background:var(--green);border-bottom:1px solid rgba(248,248,244,.15)}
+.tab{min-height:44px;padding:0 12px;border:1px solid rgba(248,248,244,.3);border-radius:10px;background:transparent;color:var(--cream);font:inherit;font-size:15px;font-weight:700;cursor:pointer}
+.tab:hover{background:rgba(248,248,244,.08)}
+.tab[aria-selected="true"]{background:var(--cream);border-color:var(--cream);color:var(--green)}
+.tab:focus-visible{outline:2px solid var(--peach);outline-offset:2px}
+.part.part-lead{margin-top:24px}
 
 /* meeting band */
 .band{margin-top:22px;background:var(--rust);border-radius:16px;padding:20px}
@@ -102,6 +111,7 @@ footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-w
 
 @media (min-width:600px){
   .wrap{padding:44px 24px 64px}
+  .tabs{margin-left:-24px;margin-right:-24px;padding-left:24px;padding-right:24px}
   .panel{padding:28px}
   .row{display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:12px;align-items:baseline}
   .row dt{font-size:15px}
@@ -118,14 +128,20 @@ footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-w
 <h1>黒保根ポーカー合宿</h1>
 <p class="dates">10月24日（土）— 25日（日）</p>
 <p class="meta">群馬県桐生市・ログハウス貸切　7人　1泊2日</p>
-<nav class="toc" aria-label="ページ内の移動">
-<a href="#schedule">当日の予定と持ち物</a>
-<a href="#rafting">ラフティングの詳細</a>
-<a href="#roles">役割と準備</a>
-</nav>
 </header>
 
+<div class="tabs" role="tablist" aria-label="表示するページ" hidden>
+<button type="button" class="tab" role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true">全体の予定</button>
+<button type="button" class="tab" role="tab" id="tab-rafting" aria-controls="panel-rafting" aria-selected="false" tabindex="-1">ラフティング</button>
+</div>
+
 <main>
+<div class="tabpanel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
+<nav class="toc" aria-label="ページ内の移動">
+<a href="#schedule">当日の予定と持ち物</a>
+<a href="#roles">役割と準備</a>
+</nav>
+
 <div class="band" id="schedule">
 <div class="band-times">
 <div><p class="k">集合</p><p class="t">6:15</p></div>
@@ -148,27 +164,9 @@ footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-w
 
 <section class="panel" aria-labelledby="h-bring">
 <h2 id="h-bring">持ち物</h2>
-
-<p class="sub-head">ラフティングに必須</p>
-<ul class="gear">
-<li><span class="box" aria-hidden="true"></span><span class="what">水着<span class="sub">この上からウェットスーツを着る。替えの下着やラッシュガードでも可。服の下に着ていくと受付がスムーズ。<b>水着の販売はないので、忘れると素肌にウェットスーツを着ることになる</b></span></span></li>
-<li><span class="box" aria-hidden="true"></span><span class="what">タオル<span class="sub">終わってウェットスーツを脱ぐときに使う。ツアー中は持っていけない。レンタルはないので各自で必ず持参</span></span></li>
-<li><span class="box" aria-hidden="true"></span><span class="what">濡れてもいい靴<span class="sub">かかとが固定できるもの。マリンシューズ、使い古したスニーカー、かかとが留まるサンダルなど</span></span></li>
-<li><span class="box" aria-hidden="true"></span><span class="what">メガネバンド<span class="sub">メガネの人。メガネが外れにくくなる</span></span></li>
-</ul>
-<div class="note"><b>使えない靴</b>：クロックス、ビーチサンダル、厚底、ヒールなど、接地面積のない靴。当日 <b>200円（現金）</b> でレンタルできるので、迷うなら借りるのが早い。</div>
-
-<p class="sub-head">あると便利</p>
-<ul class="gear">
-<li><span class="box" aria-hidden="true"></span><span class="what">水泳ゴーグル<span class="sub">コンタクトが外れにくくなる。できれば使い捨てコンタクトがおすすめ。裸眼の人は不要</span></span></li>
-<li><span class="box" aria-hidden="true"></span><span class="what">ラッシュガードなどのアンダーウェア<span class="sub">水着になるのに抵抗がある人へ。ただしフード付きや大きめのもの、肌にフィットしないものはウェットスーツの下でゴワゴワするので避ける</span></span></li>
-</ul>
-
-<p class="sub-head">そのほか</p>
 <dl class="rows">
-<div class="row"><dt>着替え</dt><dd>1泊分。ラフティングのあとに着る分も忘れずに</dd></div>
-<div class="row"><dt>上着</dt><dd>夜の山は冷える</dd></div>
-<div class="row"><dt>現金</dt><dd>ラフティング会社はカードが使えない。靴のレンタル・写真データ・任意の保険は現金のみ（→ <a href="#rafting">お金のこと</a>）</dd></div>
+<div class="row"><dt>ラフティング</dt><dd>水着（服の下に着ていくとラク。下着やラッシュガードでも可）、タオル、濡れてもいい靴（かかとが固定できるもの。クロックスとビーサンは不可）、メガネの人はメガネバンド<span class="sub"><a href="#r-bring">くわしい持ち物リストはラフティングのタブへ</a></span></dd></div>
+<div class="row"><dt>そのほか</dt><dd>1泊分の着替え、夜の山で着る上着、少しの現金（ラフティング会社での靴のレンタルや写真は現金のみ）</dd></div>
 </dl>
 </section>
 
@@ -182,56 +180,6 @@ footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-w
 </ul>
 <p class="owe">ゆーとが立て替え済み：ラフティングと宿で 1人 約16,250円</p>
 <p class="cost-note">足尾銅山は当日その場で各自払う。レンタカー・ガソリン・高速代・食材などは、帰ってからまとめて精算。</p>
-</section>
-
-<h2 class="part" id="rafting">ラフティングの詳細</h2>
-
-<section class="panel" aria-labelledby="h-raft">
-<h3 class="title" id="h-raft">当日の流れと場所</h3>
-<dl class="rows">
-<div class="row"><dt>時間</dt><dd>10月24日（土）10:45集合 – 13:30終了。集合場所は体験場所と同じ</dd></div>
-<div class="row"><dt>場所</dt><dd>TOP水上カンパニー（営業 8:00–19:00）<br>群馬県利根郡みなかみ町綱子170-1<br><a href="https://www.google.com/maps/search/?api=1&amp;query=TOP%E6%B0%B4%E4%B8%8A%E3%82%AB%E3%83%B3%E3%83%91%E3%83%8B%E3%83%BC">Googleマップで開く</a>　/　<a href="https://topminakami.com/activity.php?a=1&amp;c=0">公式ページ</a></dd></div>
-<div class="row"><dt>道順</dt><dd><span class="badge">注意</span>看板がなく、カーナビは年式によってピンポイントで出ない。Googleマップで「TOP水上カンパニー」を検索して向かう。関越道・水上ICから車で15分</dd></div>
-<div class="row"><dt>着いたら</dt><dd>保険と流れの説明 → 受付 → 着替え。普段着で行って、水着は服の下に着ておく。ウェットスーツは無料で貸してもらえる</dd></div>
-<div class="row"><dt>荷物</dt><dd>ロッカーはない。荷物は車に置いて、車のカギを受付に預ける</dd></div>
-<div class="row"><dt>ボート</dt><dd>6〜7名のボート貸切プラン。8人乗りのゴムボートにガイドが同乗するので、7人ならちょうど1艇まるごと貸切</dd></div>
-<div class="row"><dt>参加条件</dt><dd>5歳以上70歳までの健康な人。みなかみ町の条例で、川の水量による参加規定がある</dd></div>
-<div class="row"><dt>遅れそうなら</dt><dd>必ず会社へ電話する。<a href="tel:0278725086">0278-72-5086</a><span class="sub">みなかみ町観光協会の掲載番号。予約確認メールに番号があれば、そちらが確実</span></dd></div>
-</dl>
-</section>
-
-<section class="panel soft" aria-labelledby="h-raft-money">
-<h3 class="title" id="h-raft-money">お金のこと</h3>
-<dl class="rows">
-<div class="row"><dt>払い済み</dt><dd><span class="badge">ゆーとが立て替え済み</span>1人 8,250円。アクティビティ料、装備レンタル料（ウェットスーツなど）、施設使用料、施設賠償保険が含まれる</dd></div>
-</dl>
-
-<p class="sub-head">当日その場で現金が必要なもの</p>
-<ul class="fee">
-<li><span class="lab">靴のレンタル<span class="sub">持っていない人だけ</span></span><b>200円</b></li>
-<li><span class="lab">傷害保険<span class="sub">任意。料金に含まれる「施設賠償保険」は会社側に責任があるときの備えなので、自分のケガに備えるのはこちら</span></span><b>200円</b></li>
-<li><span class="lab">写真データ<span class="sub">QRコードで全データを受け取る形。「1アクティビティあたり」の金額で、1組か1人かは書かれていないため当日確認</span></span><b>1,000円</b></li>
-</ul>
-<div class="note"><b>クレジットカードは使えない。</b>現金だけ。祝日などの混む日は会計をまとめて来るよう案内されている。土曜でも7人分を1回で払えば受付が早いので、現地では各自で払わず、ゆーとかあさひに渡してまとめるのがスムーズ。</div>
-<p class="fine">麦茶などのドリンクあり。GARBAボサノバの割引券ももらえる。BBQとのセットプランもある（別途予約が必要）。</p>
-</section>
-
-<section class="panel" aria-labelledby="h-raft-cancel">
-<h3 class="title" id="h-raft-cancel">中止とキャンセル</h3>
-<dl class="rows">
-<div class="row"><dt>雨の場合</dt><dd>雨天決行。ただし川が増水して条例の水量規定を超えると中止になる</dd></div>
-<div class="row"><dt>中止の連絡</dt><dd>判断がつけば、予約者（ゆーと）の電話に連絡が来る。夜のうちに増水した場合は当日の連絡になることもある。中止ならキャンセル料はかからず、雨天時の日程変更も無料</dd></div>
-</dl>
-
-<p class="sub-head">自分たちの都合でやめる場合のキャンセル料</p>
-<ul class="fee">
-<li><span class="lab">10日前から<span class="sub">10月14日ごろ〜</span></span><b>10%</b></li>
-<li><span class="lab">7日前から<span class="sub">10月17日ごろ〜</span></span><b>30%</b></li>
-<li><span class="lab">前日<span class="sub">10月23日</span></span><b>50%</b></li>
-<li><span class="lab">当日<span class="sub">10月24日</span></span><b>100%</b></li>
-</ul>
-<p class="fine">日付は10月24日から数えた目安。数え方は会社の基準による。</p>
-<div class="note"><b>渋滞で間に合わなかった場合も100%かかる</b>と明記されている。現地ではほかの参加者と一緒に移動するので、時間に遅れないよう案内もある。だから集合6:15・出発6:30は守る。</div>
 </section>
 
 <h2 class="part" id="roles">役割と準備</h2>
@@ -268,6 +216,95 @@ footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-w
 <li><span class="box" aria-hidden="true"></span><span class="what">買い物リスト<span class="sub">鍋2種と餃子、飲み物。川崎で買うものと沼田で買うものに分ける</span></span><span class="pill">あつき</span></li>
 </ul>
 </section>
+</div>
+
+<div class="tabpanel" id="panel-rafting" role="tabpanel" aria-labelledby="tab-rafting">
+<h2 class="part part-lead">水上ラフティング</h2>
+<p class="meta">10月24日（土）・半日コース・ボート貸切</p>
+<nav class="toc" aria-label="ラフティングのページ内の移動">
+<a href="#r-bring">持ち物</a>
+<a href="#r-day">当日の流れと場所</a>
+<a href="#r-money">お金</a>
+<a href="#r-cancel">中止とキャンセル</a>
+</nav>
+
+<div class="band">
+<div class="band-times">
+<div><p class="k">集合</p><p class="t">10:45</p></div>
+<div><p class="k">終了</p><p class="t">13:30</p></div>
+</div>
+<p class="place">TOP水上カンパニー</p>
+<p class="band-note">看板がなく、カーナビでは場所が出ないことがある。Googleマップで「TOP水上カンパニー」を検索して向かう。</p>
+</div>
+
+<section class="panel" id="r-bring" aria-labelledby="h-r-bring">
+<h3 class="title" id="h-r-bring">持ち物</h3>
+
+<p class="sub-head">ラフティングに必須</p>
+<ul class="gear">
+<li><span class="box" aria-hidden="true"></span><span class="what">水着<span class="sub">この上からウェットスーツを着る。替えの下着やラッシュガードでも可。服の下に着ていくと受付がスムーズ。<b>水着の販売はないので、忘れると素肌にウェットスーツを着ることになる</b></span></span></li>
+<li><span class="box" aria-hidden="true"></span><span class="what">タオル<span class="sub">終わってウェットスーツを脱ぐときに使う。ツアー中は持っていけない。レンタルはないので各自で必ず持参</span></span></li>
+<li><span class="box" aria-hidden="true"></span><span class="what">濡れてもいい靴<span class="sub">かかとが固定できるもの。マリンシューズ、使い古したスニーカー、かかとが留まるサンダルなど</span></span></li>
+<li><span class="box" aria-hidden="true"></span><span class="what">メガネバンド<span class="sub">メガネの人。メガネが外れにくくなる</span></span></li>
+</ul>
+<div class="note"><b>使えない靴</b>：クロックス、ビーチサンダル、厚底、ヒールなど、接地面積のない靴。当日 <b>200円（現金）</b> でレンタルできるので、迷うなら借りるのが早い。</div>
+
+<p class="sub-head">あると便利</p>
+<ul class="gear">
+<li><span class="box" aria-hidden="true"></span><span class="what">水泳ゴーグル<span class="sub">コンタクトが外れにくくなる。できれば使い捨てコンタクトがおすすめ。裸眼の人は不要</span></span></li>
+<li><span class="box" aria-hidden="true"></span><span class="what">ラッシュガードなどのアンダーウェア<span class="sub">水着になるのに抵抗がある人へ。ただしフード付きや大きめのもの、肌にフィットしないものはウェットスーツの下でゴワゴワするので避ける</span></span></li>
+</ul>
+<p class="fine">水着を服の下に着ていく人は、終わったあとに替える下着も忘れずに。着替えや上着など宿の持ち物は<a href="#h-bring">全体の予定の持ち物</a>へ。</p>
+</section>
+
+<section class="panel" id="r-day" aria-labelledby="h-raft">
+<h3 class="title" id="h-raft">当日の流れと場所</h3>
+<dl class="rows">
+<div class="row"><dt>時間</dt><dd>10月24日（土）10:45集合 – 13:30終了。集合場所は体験場所と同じ</dd></div>
+<div class="row"><dt>場所</dt><dd>TOP水上カンパニー（営業 8:00–19:00）<br>群馬県利根郡みなかみ町綱子170-1<br><a href="https://www.google.com/maps/search/?api=1&amp;query=TOP%E6%B0%B4%E4%B8%8A%E3%82%AB%E3%83%B3%E3%83%91%E3%83%8B%E3%83%BC">Googleマップで開く</a>　/　<a href="https://topminakami.com/activity.php?a=1&amp;c=0">公式ページ</a></dd></div>
+<div class="row"><dt>道順</dt><dd><span class="badge">注意</span>看板がなく、カーナビは年式によってピンポイントで出ない。Googleマップで「TOP水上カンパニー」を検索して向かう。関越道・水上ICから車で15分</dd></div>
+<div class="row"><dt>着いたら</dt><dd>保険と流れの説明 → 受付 → 着替え。普段着で行って、水着は服の下に着ておく。ウェットスーツは無料で貸してもらえる</dd></div>
+<div class="row"><dt>荷物</dt><dd>ロッカーはない。荷物は車に置いて、車のカギを受付に預ける</dd></div>
+<div class="row"><dt>ボート</dt><dd>6〜7名のボート貸切プラン。8人乗りのゴムボートにガイドが同乗するので、7人ならちょうど1艇まるごと貸切</dd></div>
+<div class="row"><dt>参加条件</dt><dd>5歳以上70歳までの健康な人。みなかみ町の条例で、川の水量による参加規定がある</dd></div>
+<div class="row"><dt>遅れそうなら</dt><dd>必ず会社へ電話する。<a href="tel:0278725086">0278-72-5086</a><span class="sub">みなかみ町観光協会の掲載番号。予約確認メールに番号があれば、そちらが確実</span></dd></div>
+</dl>
+</section>
+
+<section class="panel soft" id="r-money" aria-labelledby="h-raft-money">
+<h3 class="title" id="h-raft-money">お金のこと</h3>
+<dl class="rows">
+<div class="row"><dt>払い済み</dt><dd><span class="badge">ゆーとが立て替え済み</span>1人 8,250円。アクティビティ料、装備レンタル料（ウェットスーツなど）、施設使用料、施設賠償保険が含まれる</dd></div>
+</dl>
+
+<p class="sub-head">当日その場で現金が必要なもの</p>
+<ul class="fee">
+<li><span class="lab">靴のレンタル<span class="sub">持っていない人だけ</span></span><b>200円</b></li>
+<li><span class="lab">傷害保険<span class="sub">任意。料金に含まれる「施設賠償保険」は会社側に責任があるときの備えなので、自分のケガに備えるのはこちら</span></span><b>200円</b></li>
+<li><span class="lab">写真データ<span class="sub">QRコードで全データを受け取る形。「1アクティビティあたり」の金額で、1組か1人かは書かれていないため当日確認</span></span><b>1,000円</b></li>
+</ul>
+<div class="note"><b>クレジットカードは使えない。</b>現金だけ。祝日などの混む日は会計をまとめて来るよう案内されている。土曜でも7人分を1回で払えば受付が早いので、現地では各自で払わず、ゆーとかあさひに渡してまとめるのがスムーズ。</div>
+<p class="fine">麦茶などのドリンクあり。GARBAボサノバの割引券ももらえる。BBQとのセットプランもある（別途予約が必要）。</p>
+</section>
+
+<section class="panel" id="r-cancel" aria-labelledby="h-raft-cancel">
+<h3 class="title" id="h-raft-cancel">中止とキャンセル</h3>
+<dl class="rows">
+<div class="row"><dt>雨の場合</dt><dd>雨天決行。ただし川が増水して条例の水量規定を超えると中止になる</dd></div>
+<div class="row"><dt>中止の連絡</dt><dd>判断がつけば、予約者（ゆーと）の電話に連絡が来る。夜のうちに増水した場合は当日の連絡になることもある。中止ならキャンセル料はかからず、雨天時の日程変更も無料</dd></div>
+</dl>
+
+<p class="sub-head">自分たちの都合でやめる場合のキャンセル料</p>
+<ul class="fee">
+<li><span class="lab">10日前から<span class="sub">10月14日ごろ〜</span></span><b>10%</b></li>
+<li><span class="lab">7日前から<span class="sub">10月17日ごろ〜</span></span><b>30%</b></li>
+<li><span class="lab">前日<span class="sub">10月23日</span></span><b>50%</b></li>
+<li><span class="lab">当日<span class="sub">10月24日</span></span><b>100%</b></li>
+</ul>
+<p class="fine">日付は10月24日から数えた目安。数え方は会社の基準による。</p>
+<div class="note"><b>渋滞で間に合わなかった場合も100%かかる</b>と明記されている。現地ではほかの参加者と一緒に移動するので、時間に遅れないよう案内もある。だから集合6:15・出発6:30は守る。</div>
+</section>
+</div>
 </main>
 
 <footer>
@@ -275,5 +312,68 @@ footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-w
 </footer>
 
 </div>
+<script>
+// Tabs: "#rafting" opens the rafting tab; any other "#id" opens the tab that holds it.
+(() => {
+  const root = document.documentElement;
+  const tablist = document.querySelector('.tabs');
+  const tabs = [...tablist.querySelectorAll('[role="tab"]')];
+  const panels = tabs.map(t => document.getElementById(t.getAttribute('aria-controls')));
+  const keys = ['overview', 'rafting'];
+  let current = -1;
+
+  // Scroll without the page-wide smooth behavior.
+  const jump = fn => { root.style.scrollBehavior = 'auto'; fn(); root.style.scrollBehavior = ''; };
+
+  function show(i) {
+    tabs.forEach((t, j) => {
+      t.setAttribute('aria-selected', i === j);
+      t.tabIndex = i === j ? 0 : -1;
+      panels[j].hidden = i !== j;
+    });
+    const changed = i !== current;
+    current = i;
+    return changed;
+  }
+
+  // Put the start of the tab just under the sticky bar, unless we are already above it.
+  // Always scrolling here also stops a smooth scroll still running from the other tab.
+  function toTop(i) {
+    const y = panels[i].getBoundingClientRect().top + scrollY - tablist.offsetHeight - 12;
+    jump(() => scrollTo(0, Math.min(scrollY, y)));
+  }
+
+  function route() {
+    const id = decodeURIComponent(location.hash.slice(1));
+    let i = keys.indexOf(id);
+    const el = i < 0 && id ? document.getElementById(id) : null;
+    if (i < 0) i = Math.max(0, panels.findIndex(p => el && p.contains(el)));
+    const changed = show(i);
+    if (!el) toTop(i);
+    else if (changed) jump(() => el.scrollIntoView());
+    else el.scrollIntoView();
+  }
+
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => {
+      if (location.hash === '#' + keys[i]) toTop(i);
+      else location.hash = keys[i];
+    });
+    t.addEventListener('keydown', e => {
+      const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+      if (!step) return;
+      e.preventDefault();
+      const next = tabs[(i + step + tabs.length) % tabs.length];
+      next.focus();
+      next.click();
+    });
+  });
+
+  tablist.hidden = false;
+  root.style.scrollPaddingTop = tablist.offsetHeight + 12 + 'px';
+  addEventListener('hashchange', route);
+  route();
+})();
+</script>
 </body>
 </html>
