@@ -48,6 +48,12 @@ h1{margin-top:10px;font-family:var(--serif);font-weight:800;font-size:clamp(34px
 .k{font-size:13px;font-weight:700;color:var(--peach-soft)}
 .t{font-family:var(--serif);font-weight:800;font-size:clamp(30px,8vw,40px);line-height:1.2}
 .place{margin-top:12px;font-family:var(--serif);font-weight:800;font-size:clamp(19px,5vw,24px);line-height:1.4}
+.meet{margin-top:10px;list-style:none;padding:0;display:flex;flex-direction:column;gap:12px}
+.meet li{display:grid;grid-template-columns:4.2em minmax(0,1fr);gap:12px;align-items:baseline}
+.meet .when{font-family:var(--serif);font-weight:800;font-size:clamp(24px,6.4vw,30px);line-height:1.2}
+.meet .who{display:block;font-size:16px;font-weight:700;line-height:1.5}
+.meet .what{display:block;font-size:14px;line-height:1.6;color:var(--peach-soft)}
+.band a{color:var(--cream)} .band a:hover{color:var(--peach-soft)} .band a:focus-visible{outline-color:var(--cream)}
 .band-note{margin-top:12px;padding-top:12px;border-top:1px solid rgba(248,248,244,.3);font-size:14px;line-height:1.7;color:var(--peach-soft)}
 
 /* panels */
@@ -149,7 +155,7 @@ footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-w
 <div class="wrap">
 
 <header>
-<p class="updated"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5C9.6 6 4 9.2 4 13.4c0 2.5 2 4.4 4.3 4.4 1.3 0 2.4-.5 3.1-1.3-.3 1.9-1.2 3.4-2.6 4.5h6.4c-1.4-1.1-2.3-2.6-2.6-4.5.7.8 1.8 1.3 3.1 1.3 2.3 0 4.3-1.9 4.3-4.4C20 9.2 14.4 6 12 2.5z"/></svg>10月18日時点</p>
+<p class="updated"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5C9.6 6 4 9.2 4 13.4c0 2.5 2 4.4 4.3 4.4 1.3 0 2.4-.5 3.1-1.3-.3 1.9-1.2 3.4-2.6 4.5h6.4c-1.4-1.1-2.3-2.6-2.6-4.5.7.8 1.8 1.3 3.1 1.3 2.3 0 4.3-1.9 4.3-4.4C20 9.2 14.4 6 12 2.5z"/></svg>10月19日時点</p>
 <h1>黒保根ポーカー合宿</h1>
 <p class="dates">10月24日（土）— 25日（日）</p>
 <p class="meta">群馬県桐生市・ログハウス貸切　7人　1泊2日</p>
@@ -169,12 +175,14 @@ footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-w
 </nav>
 
 <div class="band" id="schedule">
-<div class="band-times">
-<div><p class="k">集合</p><p class="t">6:15</p></div>
-<div><p class="k">出発</p><p class="t">6:30</p></div>
-</div>
-<p class="place">川崎駅西口のレンタカー店</p>
-<p class="band-note">お店はりゅーきが決める。ラフティングは遅れるとキャンセル料が全額かかるので、時間厳守で。</p>
+<p class="k">10月24日（土）の朝</p>
+<ol class="meet">
+<li><span class="when">6:00</span><span><span class="who">りゅーき・ゆーと</span><span class="what">タイムズ駐車場（9F）の車へ行き、ビルの下まで回す</span></span></li>
+<li><span class="when">6:05</span><span><span class="who">川崎組のほかの2人</span><span class="what">タイムズのビル前で待つ</span></span></li>
+<li><span class="when">6:10</span><span><span class="who">川崎を出発</span></span></li>
+<li><span class="when">6:35</span><span><span class="who">東京組の3人</span><span class="what">大手町で拾ってもらう　<a href="https://maps.app.goo.gl/Dn3VMBbxmQ2bkMc87">地図</a></span></span></li>
+</ol>
+<p class="band-note">駐車場が9Fで全員で上がると時間がかかるので、車を下まで回して拾う。土曜は高速が混むと10:45のラフティングにギリギリになるため、前倒しにした。遅れるとキャンセル料が全額かかるので、時間厳守で。</p>
 </div>
 
 <section class="panel" aria-labelledby="h-decided">
@@ -329,7 +337,7 @@ footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-w
 <li><span class="lab">当日<span class="sub">10月24日</span></span><b>100%</b></li>
 </ul>
 <p class="fine">日付は10月24日から数えた目安。数え方は会社の基準による。</p>
-<div class="note"><b>渋滞で間に合わなかった場合も100%かかる</b>と明記されている。現地ではほかの参加者と一緒に移動するので、時間に遅れないよう案内もある。だから集合6:15・出発6:30は守る。</div>
+<div class="note"><b>渋滞で間に合わなかった場合も100%かかる</b>と明記されている。現地ではほかの参加者と一緒に移動するので、時間に遅れないよう案内もある。だから<a href="#schedule">朝の集合時間</a>は守る。</div>
 </section>
 </div>
 
@@ -437,7 +445,7 @@ footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-w
 </main>
 
 <footer>
-<p>10月18日時点。予定が変わったら、このページを更新します。</p>
+<p>10月19日時点。予定が変わったら、このページを更新します。</p>
 </footer>
 
 </div>
