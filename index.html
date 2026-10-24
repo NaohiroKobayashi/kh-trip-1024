@@ -57,14 +57,20 @@ h1{margin-top:10px;font-family:var(--serif);font-weight:800;font-size:clamp(34px
 .band-note{margin-top:12px;padding-top:12px;border-top:1px solid rgba(248,248,244,.3);font-size:14px;line-height:1.7;color:var(--peach-soft)}
 
 
-/* 1日目の行程・地図 */
-.day1-timeline{margin-top:15px;list-style:none;padding:0}
-.day1-timeline li{display:grid;grid-template-columns:6.6em minmax(0,1fr);gap:8px;align-items:start;padding:10px 0;border-bottom:1px solid rgba(23,59,47,.12)}
-.day1-timeline li:last-child{border:0}
-.day1-timeline .at{font:800 18px/1.5 var(--serif);color:var(--rust)}
-.day1-timeline .activity{font-size:15px;font-weight:700}
-.day1-timeline .hint{display:block;font-size:14px;color:var(--muted)}
-.day1-route .fine{margin-top:10px}
+/* timeline */
+.timeline{margin-top:15px;list-style:none;padding:0}
+.timeline li{display:grid;grid-template-columns:6.6em minmax(0,1fr);gap:8px;align-items:start;padding:10px 0;border-bottom:1px solid rgba(23,59,47,.12)}
+.timeline li:last-child{border:0}
+.timeline .at{font:800 18px/1.5 var(--serif);color:var(--rust)}
+.timeline .activity{font-size:15px;font-weight:700}
+.timeline .hint{display:block;font-size:14px;color:var(--muted)}
+/* places */
+.places{margin-top:8px;list-style:none;padding:0;display:flex;flex-direction:column}
+.places li{padding:10px 0;border-bottom:1px solid rgba(23,59,47,.12)}
+.places li:last-child{border-bottom:0}
+.places .name{font-size:16px;font-weight:700;line-height:1.6}
+.maps{margin-top:14px}
+.maps summary{display:flex;align-items:center;min-height:44px;cursor:pointer;font-size:14px;font-weight:700;color:var(--rust)}
 .route-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:12px}
 .route-point h3{font-size:15px;margin:0 0 6px}
 .route-point iframe{width:100%;height:210px;border:0;border-radius:10px;background:var(--tint);display:block}
@@ -131,7 +137,7 @@ h1{margin-top:10px;font-family:var(--serif);font-weight:800;font-size:clamp(34px
 .fee li:last-child{border-bottom:0}
 .fee .lab{font-size:15.5px;font-weight:700}
 .fee b{font-family:var(--serif);font-weight:800;font-size:18px;white-space:nowrap}
-.gear .sub,.fee .sub,.row .sub,.shop .sub{display:block;margin-top:2px;font-size:14px;font-weight:400;color:var(--muted)}
+.gear .sub,.fee .sub,.row .sub,.shop .sub,.places .sub{display:block;margin-top:2px;font-size:14px;font-weight:400;color:var(--muted)}
 /* shopping */
 .shop{margin-top:8px;list-style:none;padding:0;display:flex;flex-direction:column}
 .shop li{display:grid;grid-template-columns:18px minmax(0,1fr) auto;gap:10px;align-items:start;padding:9px 0;border-bottom:1px solid rgba(23,59,47,.12)}
@@ -191,9 +197,12 @@ footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-w
 <main>
 <div class="tabpanel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
 <nav class="toc" aria-label="ページ内の移動">
-<a href="#schedule">当日の予定と持ち物</a>
-<a href="#day1-route">1日目の詳細と地図</a>
-<a href="#roles">役割と準備</a>
+<a href="#day1-route">1日目</a>
+<a href="#day2">2日目</a>
+<a href="#h-bring">持ち物</a>
+<a href="#h-cost">費用</a>
+<a href="#roles">役割</a>
+<a href="#places">地図</a>
 </nav>
 
 <div class="band" id="schedule">
@@ -207,46 +216,42 @@ footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-w
 <p class="band-note">駐車場が9Fで全員で上がると時間がかかるので、車を下まで回して拾う。土曜は高速が混むと10:45のラフティングにギリギリになるため、前倒しにした。遅れるとキャンセル料が全額かかるので、時間厳守で。</p>
 </div>
 
-<section class="panel day1-route" id="day1-route" aria-labelledby="h-day1-route">
-<h2 id="h-day1-route">10月24日（土）1日目の詳しい行程</h2>
-<p class="fine">ラフティング終了後、ベルク沼田店で夕食の材料と各自の昼兼軽食を買ってから宿へ移動する。</p>
-<ol class="day1-timeline"><li><span class="at">6:00</span><span><span class="activity">Timesカーを出庫</span><span class="hint">りゅーき・ゆーとが駐車場9Fから車を出す</span></span></li>
-<li><span class="at">6:05</span><span><span class="activity">川崎で乗車</span><span class="hint">さとー・りょーががビル前で待つ</span></span></li>
-<li><span class="at">6:10</span><span><span class="activity">川崎を出発</span></span></li>
-<li><span class="at">6:35</span><span><span class="activity">大手町で合流</span><span class="hint">コバ・あつき・あさひを拾う</span></span></li>
-<li><span class="at">10:30目標</span><span><span class="activity">ラフティング会場に到着</span><span class="hint">TOP水上カンパニー。余裕を持って受付へ</span></span></li>
-<li><span class="at">10:45</span><span><span class="activity">ラフティング集合</span></span></li>
-<li><span class="at">13:30</span><span><span class="activity">ラフティング終了</span></span></li>
+<section class="panel" id="day1-route" aria-labelledby="h-day1-route">
+<h2 id="h-day1-route">1日目（10/24 土）の流れ</h2>
+<ol class="timeline">
+<li><span class="at">6:35</span><span><span class="activity">大手町で全員そろって出発</span><span class="hint">朝の集合は<a href="#schedule">上の帯</a></span></span></li>
+<li><span class="at">10:30目標</span><span><span class="activity">TOP水上カンパニーに到着</span><span class="hint">10:45集合。遅れるとキャンセル料が全額　<a href="#rafting">ラフティングのタブ</a></span></span></li>
+<li><span class="at">10:45–13:30</span><span><span class="activity">ラフティング</span></span></li>
 <li><span class="at">13:30–13:50</span><span><span class="activity">着替え・出発準備</span></span></li>
-<li><span class="at">13:50–14:35</span><span><span class="activity">ベルク沼田店へ移動</span><span class="hint">約45分の目安</span></span></li>
-<li><span class="at">14:35–15:20</span><span><span class="activity">買い出し＆昼兼軽食の購入</span><span class="hint">鍋・餃子の食材を買い、昼食の軽食・飲み物は各自で購入</span></span></li>
-<li><span class="at">15:20–16:30</span><span><span class="activity">宿へ移動</span><span class="hint">車で約70分の目安</span></span></li>
-<li><span class="at">16:30–17:00</span><span><span class="activity">宿に到着・荷物整理</span><span class="hint">ログベース黒保根の丘</span></span></li>
-<li><span class="at">17:00–18:30</span><span><span class="activity">みんなで鍋・餃子を準備</span></span></li>
-<li><span class="at">18:30–20:00</span><span><span class="activity">鍋・水餃子で夕食</span><span class="hint">片付けもみんなで</span></span></li>
-<li><span class="at">20:00〜</span><span><span class="activity">ポーカー</span></span></li></ol>
-<div class="note"><b>移動時間は概算。</b>水上→ベルク約45分、ベルク→宿約70分で計画。リアルタイムのGoogleマップ計算値ではないため、道路状況に合わせて当日ナビで再確認する。</div>
-<p class="sub-head">Googleマップで見る（立ち寄り順）</p>
-<div class="route-grid"><div class="route-point"><h3>1. TOP水上カンパニー <span class="badge">ラフティング</span></h3>
-<iframe title="TOP水上カンパニーのGoogleマップ" src="https://maps.google.com/maps?q=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E5%88%A9%E6%A0%B9%E9%83%A1%E3%81%BF%E3%81%AA%E3%81%8B%E3%81%BF%E7%94%BA%E7%B6%B1%E5%AD%90170-1&amp;z=13&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-<p>群馬県利根郡みなかみ町綱子170-1<br><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E5%88%A9%E6%A0%B9%E9%83%A1%E3%81%BF%E3%81%AA%E3%81%8B%E3%81%BF%E7%94%BA%E7%B6%B1%E5%AD%90170-1" target="_blank" rel="noopener noreferrer">Googleマップで開く</a></p></div>
-<div class="route-point"><h3>2. ベルク沼田店 <span class="badge">買い物・昼兼軽食</span></h3>
-<iframe title="ベルク沼田店のGoogleマップ" src="https://maps.google.com/maps?q=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E6%B2%BC%E7%94%B0%E5%B8%82%E6%9D%B1%E5%8E%9F%E6%96%B0%E7%94%BA1455-1&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-<p>群馬県沼田市東原新町1455-1<br><a href="https://maps.app.goo.gl/NDK3wrFMbwKb5Ndd8" target="_blank" rel="noopener noreferrer">Googleマップで開く</a></p></div>
-<div class="route-point"><h3>3. ログベース黒保根の丘 <span class="badge">宿泊</span></h3>
-<iframe title="ログベース黒保根の丘のGoogleマップ" src="https://maps.google.com/maps?q=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E6%A1%90%E7%94%9F%E5%B8%82%E9%BB%92%E4%BF%9D%E6%A0%B9%E7%94%BA%E4%B8%8B%E7%94%B0%E6%B2%A23104-19&amp;z=14&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-<p>群馬県桐生市黒保根町下田沢3104-19<br><a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E6%A1%90%E7%94%9F%E5%B8%82%E9%BB%92%E4%BF%9D%E6%A0%B9%E7%94%BA%E4%B8%8B%E7%94%B0%E6%B2%A23104-19" target="_blank" rel="noopener noreferrer">Googleマップで開く</a></p></div></div>
-<p class="fine"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E5%88%A9%E6%A0%B9%E9%83%A1%E3%81%BF%E3%81%AA%E3%81%8B%E3%81%BF%E7%94%BA%E7%B6%B1%E5%AD%90170-1&amp;destination=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E6%A1%90%E7%94%9F%E5%B8%82%E9%BB%92%E4%BF%9D%E6%A0%B9%E7%94%BA%E4%B8%8B%E7%94%B0%E6%B2%A23104-19&amp;waypoints=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E6%B2%BC%E7%94%B0%E5%B8%82%E6%9D%B1%E5%8E%9F%E6%96%B0%E7%94%BA1455-1&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">3地点の経由ルートをGoogleマップで開く ↗</a></p>
-<p class="fine">宿：〒376-0144 群馬県桐生市黒保根町下田沢3104-19</p>
+<li><span class="at">13:50–14:35</span><span><span class="activity">ベルク沼田店へ移動</span><span class="hint">約45分</span></span></li>
+<li><span class="at">14:35–15:20</span><span><span class="activity">買い出し</span><span class="hint">鍋と水餃子の材料。昼ごはん代わりの軽食と飲み物は各自で　<a href="#shopping">買い物リスト</a></span></span></li>
+<li><span class="at">15:20–16:30</span><span><span class="activity">宿へ移動</span><span class="hint">約70分</span></span></li>
+<li><span class="at">16:30</span><span><span class="activity">ログベース黒保根の丘に到着・荷物整理</span></span></li>
+<li><span class="at">17:00–18:30</span><span><span class="activity">鍋と水餃子の準備</span><span class="hint"><a href="#s-cook">調理の手順と分担</a></span></span></li>
+<li><span class="at">18:30–20:00</span><span><span class="activity">夕食</span><span class="hint">片付けもみんなで</span></span></li>
+<li><span class="at">20:00〜</span><span><span class="activity">ポーカー</span></span></li>
+</ol>
+<p class="fine">移動時間は目安。道路状況に合わせて、当日ナビで確認する。</p>
 </section>
+
+<section class="panel" id="day2" aria-labelledby="h-day2">
+<h2 id="h-day2">2日目（10/25 日）の流れ</h2>
+<ol class="timeline">
+<li><span class="at">午前</span><span><span class="activity">片付け・チェックアウト</span><span class="hint">時刻とゴミの出し方は宿に確認中</span></span></li>
+<li><span class="at">そのあと</span><span><span class="activity">足尾銅山観光</span><span class="hint">830円。その場で各自払う</span></span></li>
+<li><span class="at">帰り道</span><span><span class="activity">道の駅くろほね</span></span></li>
+<li><span class="at">17:00–17:30</span><span><span class="activity">川崎に到着</span><span class="hint">渋滞しだい</span></span></li>
+<li><span class="at">着いたら</span><span><span class="activity">Timesカーをタイムズ駐車場（9F）に返す</span><span class="hint">返却時刻を延長せずに過ぎると、超過分は2倍</span></span></li>
+</ol>
+<p class="fine">時間の管理はさとー。場所は<a href="#places">場所と地図</a>へ。</p>
+</section>
+
 <section class="panel" aria-labelledby="h-decided">
-<h2 id="h-decided">決まったこと</h2>
+<h2 id="h-decided">予約したもの</h2>
 <dl class="rows">
-<div class="row"><dt>宿</dt><dd><span class="badge">ゆーとが立て替え済み</span>ログベース黒保根の丘（1棟貸切）<span class="sub">群馬県桐生市黒保根町下田沢3104-19　<a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E6%A1%90%E7%94%9F%E5%B8%82%E9%BB%92%E4%BF%9D%E6%A0%B9%E7%94%BA%E4%B8%8B%E7%94%B0%E6%B2%A23104-19" target="_blank" rel="noopener noreferrer">地図</a></span></dd></div>
+<div class="row"><dt>宿</dt><dd><span class="badge">ゆーとが立て替え済み</span>ログベース黒保根の丘（1棟貸切）　<a href="#places">地図</a></dd></div>
 <div class="row"><dt>ラフティング</dt><dd><span class="badge">ゆーとが立て替え済み</span>水上・半日コース（TOP水上カンパニー）10:45集合 – 13:30　<a href="#rafting">詳細</a></dd></div>
 <div class="row"><dt>車</dt><dd>Timesカー（カーシェア）。当日の朝にタイムズ駐車場（9F）から出し、帰りも同じ駐車場に返す<span class="sub">ガソリン代は料金に含まれるので、満タン返しは不要。予約の返却時刻を延長せずに過ぎると、超過分の料金は2倍になる</span></dd></div>
-<div class="row"><dt>1日目の午後〜夜</dt><dd>13:30ラフティング終了 → ベルク沼田店で買い出し＆各自の昼兼軽食購入 → 16:30ごろ宿着 → 鍋と水餃子 → ポーカー　<a href="#day1-route">行程と地図</a></dd></div>
-<div class="row"><dt>2日目</dt><dd>足尾銅山観光 → 道の駅くろほね → 川崎に17時〜17時半ごろ着（渋滞しだい）</dd></div>
 </dl>
 </section>
 
@@ -304,6 +309,29 @@ footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-w
 <li><span class="box" aria-hidden="true"></span><span class="what">宿への確認<span class="sub">鍋とコンロの数、チェックイン・アウトの時刻、ゴミの出し方</span></span><span class="pill">ゆーと</span></li>
 <li><span class="box" aria-hidden="true"></span><span class="what">カセットコンロとガス<span class="sub">宿への確認のあと、足りなければ用意する</span></span><span class="pill">りょーが</span></li>
 </ul>
+</section>
+
+<section class="panel" id="places" aria-labelledby="h-places">
+<h2 id="h-places">場所と地図</h2>
+<ol class="places">
+<li><span class="name">タイムズ駐車場（川崎）</span> <span class="badge">6:00・6:05 集合</span><span class="sub">りゅーき・ゆーとは9Fの車へ。さとー・りょーがはビル前　<a href="https://maps.app.goo.gl/gJaEnCq2U8eT8KjU9">Googleマップで開く</a></span></li>
+<li><span class="name">大手町</span> <span class="badge">6:35 集合</span><span class="sub">コバ・あつき・あさひ　<a href="https://maps.app.goo.gl/Dn3VMBbxmQ2bkMc87">Googleマップで開く</a></span></li>
+<li><span class="name">TOP水上カンパニー</span> <span class="badge">ラフティング</span><span class="sub">群馬県利根郡みなかみ町綱子170-1。看板がないので、店名で検索して向かう　<a href="https://www.google.com/maps/search/?api=1&amp;query=TOP%E6%B0%B4%E4%B8%8A%E3%82%AB%E3%83%B3%E3%83%91%E3%83%8B%E3%83%BC">Googleマップで開く</a></span></li>
+<li><span class="name">ベルク沼田店</span> <span class="badge">買い出し</span><span class="sub">群馬県沼田市東原新町1455-1　<a href="https://maps.app.goo.gl/NDK3wrFMbwKb5Ndd8">Googleマップで開く</a></span></li>
+<li><span class="name">ログベース黒保根の丘</span> <span class="badge">宿</span><span class="sub">〒376-0144 群馬県桐生市黒保根町下田沢3104-19　<a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E6%A1%90%E7%94%9F%E5%B8%82%E9%BB%92%E4%BF%9D%E6%A0%B9%E7%94%BA%E4%B8%8B%E7%94%B0%E6%B2%A23104-19">Googleマップで開く</a></span></li>
+<li><span class="name">足尾銅山観光</span> <span class="badge">2日目</span><span class="sub"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E8%B6%B3%E5%B0%BE%E9%8A%85%E5%B1%B1%E8%A6%B3%E5%85%89">Googleマップで開く</a></span></li>
+<li><span class="name">道の駅くろほね</span> <span class="badge">2日目</span><span class="sub"><a href="https://www.google.com/maps/search/?api=1&amp;query=%E9%81%93%E3%81%AE%E9%A7%85%E3%81%8F%E3%82%8D%E3%81%BB%E3%81%AD">Googleマップで開く</a></span></li>
+</ol>
+<p class="fine"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E5%88%A9%E6%A0%B9%E9%83%A1%E3%81%BF%E3%81%AA%E3%81%8B%E3%81%BF%E7%94%BA%E7%B6%B1%E5%AD%90170-1&amp;destination=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E6%A1%90%E7%94%9F%E5%B8%82%E9%BB%92%E4%BF%9D%E6%A0%B9%E7%94%BA%E4%B8%8B%E7%94%B0%E6%B2%A23104-19&amp;waypoints=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E6%B2%BC%E7%94%B0%E5%B8%82%E6%9D%B1%E5%8E%9F%E6%96%B0%E7%94%BA1455-1&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">3地点の経由ルートをGoogleマップで開く ↗</a></p>
+<details class="maps">
+<summary>埋め込みの地図を見る（TOP水上・ベルク沼田店・宿）</summary>
+<div class="route-grid"><div class="route-point"><h3>1. TOP水上カンパニー <span class="badge">ラフティング</span></h3>
+<iframe title="TOP水上カンパニーのGoogleマップ" src="https://maps.google.com/maps?q=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E5%88%A9%E6%A0%B9%E9%83%A1%E3%81%BF%E3%81%AA%E3%81%8B%E3%81%BF%E7%94%BA%E7%B6%B1%E5%AD%90170-1&amp;z=13&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+<div class="route-point"><h3>2. ベルク沼田店 <span class="badge">買い物・昼兼軽食</span></h3>
+<iframe title="ベルク沼田店のGoogleマップ" src="https://maps.google.com/maps?q=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E6%B2%BC%E7%94%B0%E5%B8%82%E6%9D%B1%E5%8E%9F%E6%96%B0%E7%94%BA1455-1&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+<div class="route-point"><h3>3. ログベース黒保根の丘 <span class="badge">宿泊</span></h3>
+<iframe title="ログベース黒保根の丘のGoogleマップ" src="https://maps.google.com/maps?q=%E7%BE%A4%E9%A6%AC%E7%9C%8C%E6%A1%90%E7%94%9F%E5%B8%82%E9%BB%92%E4%BF%9D%E6%A0%B9%E7%94%BA%E4%B8%8B%E7%94%B0%E6%B2%A23104-19&amp;z=14&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div></div>
+</details>
 </section>
 </div>
 
@@ -499,7 +527,7 @@ footer{margin-top:36px;font-size:13px;color:var(--sage);text-align:center;text-w
 </main>
 
 <footer>
-<p>10月21日時点。予定が変わったら、このページを更新します。</p>
+<p>10月24日時点。予定が変わったら、このページを更新します。</p>
 </footer>
 
 </div>
